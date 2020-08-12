@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberButton component should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="operator"
+    data-testid="core-button-+"
+    value="+"
+  >
+    +
+  </button>
+</DocumentFragment>
+`;

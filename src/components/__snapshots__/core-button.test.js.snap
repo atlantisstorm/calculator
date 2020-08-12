@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoreButton component should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    data-testid="core-button-5"
+    value="5"
+  >
+    5
+  </button>
+</DocumentFragment>
+`;

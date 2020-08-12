@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`History component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="history"
+  >
+    <span>
+      History
+    </span>
+    <div>
+      <div
+        class="item"
+      >
+        <span>
+          5+5
+        </span>
+        <br />
+        <span
+          class="result"
+        >
+          10
+        </span>
+      </div>
+      <div
+        class="item"
+      >
+        <span>
+          5*5
+        </span>
+        <br />
+        <span
+          class="result"
+        >
+          25
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
