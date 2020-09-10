@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
     agent any
     environment {
@@ -10,9 +12,19 @@ pipeline {
         booleanParam(name: "SAYWHAT", defaultValue: true, description: 'Say something')
     }
     stages {
+        stage("init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage("build") {
             steps {
                 echo "building applcation with version number ${NEW_VERSION}"
+                script {
+                    gv.greeting()
+                }
                 sh "npm install"
             }
         }
@@ -33,7 +45,9 @@ pipeline {
                 }
             }
             steps {
-                echo "testing applcation BRANCH_NAME==${BRANCH_NAME} SERVER_CREDENTIALS==${SERVER_CREDENTIALS}"
+                script {
+                    gv.greetingsFromTest()
+                }
                 sh "git checkout ${BRANCH_NAME}"
                 sh "npm run test:unwatched"
             }
@@ -52,7 +66,9 @@ pipeline {
         }        
         stage("deploy") {
             steps {
-                echo "deploying applcation VERSION==${params.VERSIONS}"
+                script {
+                    gv.greetingsFromDeploy()
+                }
                 withCredentials([
                     usernamePassword(credentials: 'atlantisstorm-github', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
