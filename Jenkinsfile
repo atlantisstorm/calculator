@@ -5,9 +5,9 @@ pipeline {
         SERVER_CREDENTIALS = credentials('atlantisstorm-github')
     }
     parameters {
-        string(name: 'VERSION', defaultVaule: '', description: 'Version')
+        string(name: 'VERSION', defaultValue: '', description: 'Version')
         choice(name: 'VERSIONS', choices: ["1.0.0", "2.0.0", "3.0.0"], description: 'Take your pick!')
-        booleanParam(name: "SAYWHAT", defaultVaule: true, description: 'Say something')
+        booleanParam(name: "SAYWHAT", defaultValue: true, description: 'Say something')
     }
     stages {
         stage("build") {
