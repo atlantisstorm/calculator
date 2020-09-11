@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo "building applcation with version number ${NEW_VERSION}"
                 script {
-                    gv.greeting()
+                    gv.greetings()
                 }
                 sh "npm install"
             }
