@@ -54,8 +54,8 @@ pipeline {
         }
         stage("build docker image") {
             steps {
-                echo "testing applcation"
-                //sh "npm run test"
+                echo "build docker image"
+                sh "docker build -t atlantisstorm/calculator:lts ."
             }
         }
         stage("upload docker image") {
@@ -70,7 +70,7 @@ pipeline {
                     gv.greetingsFromDeploy()
                 }
                 withCredentials([
-                    usernamePassword(credentials: 'atlantisstorm-github', usernameVariable: USER, passwordVariable: PWD)
+                    usernamePassword(credentialsId: 'atlantisstorm-github', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
                     echo "Deploying with github credentials USER==${USER}, PWD==${PWD}"
                 }
